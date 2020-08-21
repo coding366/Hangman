@@ -2,70 +2,71 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
-public class HangManClass {
+
+public class HangManClass_Program {
 
     public static void main(String[] args) {
-        guessWord(generateRandomWord());
+        new HangManClass().gW(gRR());
     }
 
-    private static String generateRandomWord(){
-        int leftLimit = 97;
-        int rightLimit = 122;
-        int targetStringLength = 4;
-        Random random = new Random();
-        return  random.ints(leftLimit, rightLimit + 1)
-                .limit(targetStringLength)
+    private static String gRR(){
+        int lL = 97;
+        int rL = 122;
+        int tSL = 4;
+        Random r = new Random();
+        return  r.ints(lL, rL + 1)
+                .limit(tSL)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
     }
 
-    private static void guessWord(String wordToGuess) {
-        int attempts = 0;
-        Set<String> previousGuesses = new HashSet<>();
-        Scanner input = new Scanner(System.in);
-        int wordLength = wordToGuess.length();
-        char[] wordToGuessChars = wordToGuess.toCharArray();
-        char[] censor = wordToGuess.toCharArray();
-        System.out.println("Your secret word is : "+wordToGuess);
-        for (int index = 0; index < wordLength; index++) {
-            censor[index] = '_';
+    public void gW(String wordToGuess) {
+        int aaa = 0;
+        Set<String> pGG = new HashSet<>();
+        Scanner i = new Scanner(System.in);
+        int wL = wordToGuess.length();
+        char[] wTGC = wordToGuess.toCharArray();
+        char[] c = wordToGuess.toCharArray();
+        System.out.println("Secret word: "+wordToGuess);
+        for (int index = 0; index < wL; index++) {
+            c[index] = '_';
         }
-        while (!String.valueOf(censor).equals(wordToGuess)) {
-            boolean isCorrect = false;
-            boolean isRepeated = false;
-            for (int a = 0; a < wordLength; a++) {
-                System.out.print(censor[a]);
+        while (!String.valueOf(c).equals(wordToGuess)) {
+            boolean iC = false;
+            boolean iR = false;
+            for (int a = 0; a < wL; a++) {
+                System.out.print(c[a]);
             }
             System.out.println();
-            System.out.print("Type your guess: ");
-            String currentGuess = input.next().substring(0, 1);
-            char currentGuessCharacter = currentGuess.charAt(0);
-            if (previousGuesses.contains(currentGuess))
+            System.out.print("Guess? ");
+            String cG = i.next().substring(0, 1);
+            char cGC = cG.charAt(0);
+            if (pGG.contains(cG))
             {
-                System.out.println("You already guessed this letter! Try again. Your previous guesses were: ");
-                System.out.println(previousGuesses.stream().reduce("", String::concat));
-                isRepeated = true;
+                System.out.println("Try again. Your previous guesses: ");
+                System.out.println(pGG.stream().reduce("", String::concat));
+                iR = true;
             }
-            previousGuesses.add(currentGuess);
-            if (!isRepeated) {
-                int times = 0;
-                for (int index = 0; index < wordLength; index++) {
-                    if (wordToGuessChars[index] == currentGuessCharacter) {
-                        censor[index] = currentGuessCharacter;
-                        isCorrect = true;
-                        times++;
+            pGG.add(cG);
+            if (!iR) {
+                int t = 0;
+                for (int index = 0; index < wL; index++) {
+                    if (wTGC[index] == cGC) {
+                        c[index] = cGC;
+                        iC = true;
+                        t++;
                     }
                 }
-                if (isCorrect) {
-                    System.out.println("The letter " + currentGuessCharacter + " is in the secret word! There are " + times + " " + currentGuessCharacter + " 's in the word.");
+                if (iC) {
+                    System.out.println("The letter " + cGC + " is in the secret word! There are " + t + " " + cGC + " 's in the word.");
                 } else {
                     System.out.println("Sorry, the letter is not in the word. Your secret word: ");
                 }
                 System.out.println();
             }
-            attempts++;
+            aaa++;
         }
-        System.out.println("You guessed the entire word " + wordToGuess.toUpperCase() + "  correctly! It took you " + attempts + " attempts!");
+        System.out.println("You guessed the entire word " + wordToGuess.toUpperCase() + "  correctly! It took you " + aaa + " attempts!");
     }
 
     @Override
@@ -73,3 +74,8 @@ public class HangManClass {
         return "HangManClass{}";
     }
 }
+
+
+
+
+
