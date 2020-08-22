@@ -5,60 +5,36 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class HangManClassTest {
+public class HangManClass_ProgramTest {
 
-    public HangManClassTest() {
+     public HangManClass_ProgramTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of main method, of class HangManClass.
-     */
     @Test
-    public void testMain() {
+    public void tM() {
         System.out.println("main");
         String[] args = null;
         HangManClass.main(args);
-        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of toString method, of class HangManClass.
-     */
     @Test
-    public void testToString() {
+    public void tTS() {
         System.out.println("toString");
-        HangManClass instance = new HangManClass();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        HangManClass ii = new HangManClass();
+        String eR = "";
+        String rr = ii.toString();
+        assertEquals(eR, rr);    fail("The test case is a prototype.");
     }
 
 
     @Test
-    public void testRandomGenerator() {
+    public void tRG() {
         System.out.println("Random Generator");
-        HangManClass instance = new HangManClass();
-        instance.guessWord(instance.generateRandomWord());
-        // TODO review the generated test code and remove the default call to fail.
+        HangManClass ii = new HangManClass();
+        ii.guessWord(ii.generateRandomWord());
         fail("The test case is a prototype.");
     }
+}
+
+
 }
