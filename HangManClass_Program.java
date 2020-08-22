@@ -6,7 +6,7 @@ import java.util.Set;
 public class HangManClass_Program {
 
     public static void main(String[] args) {
-        new HangManClass().gW(gRR());
+       new  HangManClass_Program().gW(gRR());
     }
 
     private static String gRR(){
@@ -17,21 +17,21 @@ public class HangManClass_Program {
         return  r.ints(lL, rL + 1)
                 .limit(tSL)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                .toString();
-    }
+                .toString(); }
 
-    public void gW(String wordToGuess) {
+    public void gW(String wwTG) {
         int aaa = 0;
         Set<String> pGG = new HashSet<>();
         Scanner i = new Scanner(System.in);
-        int wL = wordToGuess.length();
-        char[] wTGC = wordToGuess.toCharArray();
-        char[] c = wordToGuess.toCharArray();
-        System.out.println("Secret word: "+wordToGuess);
-        for (int index = 0; index < wL; index++) {
-            c[index] = '_';
+        int wL = wwTG.length();
+        char[] wTGC = wwTG.toCharArray();
+        char[] c = wwTG.toCharArray();
+        System.out.print("Secret word: ");
+        System.out.println(wwTG);
+        for (int o = 0; o < wL; o++) {
+            c[o] = '_';
         }
-        while (!String.valueOf(c).equals(wordToGuess)) {
+        while (!String.valueOf(c).equals(wwTG)) {
             boolean iC = false;
             boolean iR = false;
             for (int a = 0; a < wL; a++) {
@@ -58,7 +58,13 @@ public class HangManClass_Program {
                     }
                 }
                 if (iC) {
-                    System.out.println("The letter " + cGC + " is in the secret word! There are " + t + " " + cGC + " 's in the word.");
+                    System.out.print("The letter ");
+                    System.out.print(cGC);
+                    System.out.print(" is in the secret word! There are ");
+                    System.out.print(t);
+                    System.out.print(" ");
+                    System.out.print(cGC);
+                    System.out.println(" 's in the word.");
                 } else {
                     System.out.println("Sorry, the letter is not in the word. Your secret word: ");
                 }
@@ -66,7 +72,11 @@ public class HangManClass_Program {
             }
             aaa++;
         }
-        System.out.println("You guessed the entire word " + wordToGuess.toUpperCase() + "  correctly! It took you " + aaa + " attempts!");
+        System.out.print("You guessed the entire word ");
+        System.out.print(wwTG.toUpperCase());
+        System.out.print("  correctly! It took you ");
+        System.out.print(aaa);
+        System.out.print(" attemts!");
     }
 
     @Override
@@ -74,8 +84,3 @@ public class HangManClass_Program {
         return "HangManClass{}";
     }
 }
-
-
-
-
-
